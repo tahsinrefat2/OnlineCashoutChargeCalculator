@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/6466/6466947.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Select Payment Method</title>
+    <style>
+        video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            /* Center the video */
+            z-index: -1;
+            /* Place the video behind other content */
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+            background: transparent;
+        }
+
+        h1 {
+            margin-top: 200px;
+            color: #333;
+        }
+
+        .payment-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 60px;
+        }
+
+        button {
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 35px;
+            padding: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #ddd;
+            transform: scale(1.05);
+        }
+
+        button img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <video autoplay loop muted>
+        <source src="https://www.pexels.com/download/video/2141798/?fps=25.0&h=1080&w=1920" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    
+
+    <div class="container">
+        <h1>Select Cash Out Method For Maximum Withdrawal</h1>
+        <div class="payment-buttons">
+            <button onclick="redirectToPayment('bkash')">
+                <img src="https://www.logo.wine/a/logo/BKash/BKash-bKash-Logo.wine.svg" alt="Bkash Logo" width="200"
+                    height="50">
+            </button>
+            <button onclick="redirectToPayment('nagad')">
+                <img src="https://nagad.com.bd/_nuxt/img/new-logo.7939432.png" alt="Nagad Logo" width="100" height="50">
+            </button>
+            <button onclick="redirectToPayment('rocket')">
+                <img src="https://www.dutchbanglabank.com/img/mlogo.png" alt="Rocket Logo" width="100" height="50">
+            </button>
+            <button onclick="redirectToPayment('upay')">
+                <img src="https://www.pngtom.com/files/preview/800x800/31691834537dmz1igdncouyd0ngkwjsrs5nujdmixmkjel0wmxuija74sujtntvzjahvktfzprcm7vtyfrxkxcjhlc7pmfewd7oqfxe8xznimpv.png"
+                    alt="Upay Logo" width="100" height="50">
+            </button>
+            <button onclick="redirectToPayment('surecash')">
+                <img src="https://www.pngtom.com/files/preview/960x960/31703688493ibxxbagdhgeem2stxvwtjywvaxk94tu1msabh7ko9zq1iwaj9slmwc9saobbubxaezxzyoglqkissmfsc5uyaajgk1z6rpyzkyll.png"
+                    alt="SureCash Logo" width="100" height="50">
+            </button>
+        </div>
+    </div>
+    <iframe src="footer.html" frameborder="0" width="100%" height="150px"></iframe>
+
+    <script src="script.js"></script>
+    
+</body>
+
+</html>

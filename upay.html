@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/6466/6466947.png" type="image/png">
+
+    <title>Upay Maximum Withdraw Calculator</title>
+  
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #144A95;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 60px auto;
+            background-image: url('https://scontent.fdac14-1.fna.fbcdn.net/v/t1.6435-9/157739590_965333154239161_2274622428077163962_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=7a1959&_nc_eui2=AeHi44W9onPiElrs_m4S585PDQJCV8fMT0YNAkJXx8xPRi6VwviLAKlA1sO4F0Zy5dL3V3nKufQZbgCjVe1Et3Gk&_nc_ohc=bifoynuk-y8AX874NJU&_nc_ht=scontent.fdac14-1.fna&oh=00_AfBQxghCjFCoNkkjPVA8YMgkWeHX4BFDVKFWdHPZTvoY6w&oe=65C4E2D7');
+            background-size: 25ch;
+            background-position:bottom;
+            background-repeat: no-repeat;
+            background-color: white;
+            padding: 70px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(1000px);
+            /* Adjust the blur amount as needed */
+        }
+
+
+        h1 {
+            color: #434343;
+            text-align: center;
+            margin-top: 0px;
+            -webkit-text-stroke-color: #144A95;
+            -webkit-text-stroke-width: 0.3px;
+        }
+
+        .form-container {
+            text-align: center;
+            margin-top: 40px;
+
+        }
+
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #FDD500;
+            border-radius: 25px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #144A95;
+            border-radius: 25px;
+        }
+
+        button {
+            background-color: #FDD500;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.5s ease;
+        }
+
+        button:hover {
+            background-color: #144A95;
+            transition: inherit;
+        }
+
+        .result-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            display: none;
+        }
+
+        .modal {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .modal button {
+            background-color: #FDD500;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .modal button:hover {
+            background-color: #144A95;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+    <div class="container">
+        <h1>Upay Maximum Withdraw Calculator</h1>
+        <input type="number" id="currentBalance" placeholder="Enter current balance" required>
+
+        <select id="cashoutMethod">
+            <option value="selectCashoutMethod">Select Cashout Method</option>
+            <option value="primaryWallet">Primary Wallet</option>
+            <option value="disbursementWallet">Disbursement Wallet</option>
+            <option value="salaryWallet">Salary Wallet</option>
+            <option value="remittanceWallet">Remittance Wallet</option>
+            <option value="atm">ATM</option>
+        </select>
+
+        <button onclick="calculateWithdraw('upay')">Calculate Withdraw</button>
+        <p id="result"></p>
+    </div>
+    <iframe src="footer.html" frameborder="0" width="100%" height="150px"></iframe>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+
+</html>

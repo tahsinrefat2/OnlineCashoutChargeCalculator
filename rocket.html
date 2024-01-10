@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/6466/6466947.png" type="image/png">
+
+    <title>Rocket Maximum Withdraw Calculator</title>
+    
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #8F2A85;
+            /* Set the body's background color */
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 60px auto;
+            background-image: url('https://powerwebit.com/fontend/image/payment/rocket.png');
+            background-size: 40ch;
+            background-position: bottom;
+            background-repeat: no-repeat;
+            background-color: white;
+            padding: 70px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(3px);
+        }
+
+
+        h1 {
+            color: #8F2A85;
+            text-align: center;
+            margin-top: 0px;
+
+        }
+
+        .form-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #8F2A85;
+            border-radius: 25px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #8F2A85;
+            border-radius: 25px;
+        }
+
+        button {
+            background-color: #fff;
+            color: #8F2A85;
+            padding: 10px 20px;
+            border-style: solid;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.5s ease;
+        }
+
+        button:hover {
+            background-color: #8F2A85;
+            transition: inherit;
+            color: #ffffff;
+            border-style: solid;
+            border-color: #8F2A85;
+        }
+
+        .result-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            display: none;
+        }
+
+        .modal {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .modal button {
+            background-color: #8F2A85;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .modal button:hover {
+            background-color: #a7259a;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+    <div class="container">
+        <h1>Rocket Maximum Withdraw Calculator</h1>
+        <input type="number" id="currentBalance" placeholder="Enter current balance" required>
+
+        <select id="cashoutMethod">
+            <option value="selectCashoutMethod">Select Cashout Method</option>
+            <option value="agent">Agent</option>
+            <option value="atm">DBBL ATM</option>
+            <option value="ussd">USSD</option>
+        </select>
+
+        <button onclick="calculateWithdraw('rocket')">Calculate Withdraw</button>
+        <p id="result"></p>
+    </div>
+    <iframe src="footer.html" frameborder="0" width="100%" height="150px"></iframe>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+
+</html>
