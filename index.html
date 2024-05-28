@@ -6,110 +6,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/6466/6466947.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="import" href="header.html"> -->
 
-    <title>Select Payment Method</title>
+    <title>Bkash Withdraw Calculator</title>
+
     <style>
-        video {
-            position:absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translateX(-50%) translateY(-50%);
-            /* Center the video */
-            z-index: -1;
-            /* Place the video behind other content */
-        }
-
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: transparent;
-            overflow: hidden;
+            background-color: #ffffff;
         }
 
         .container {
-            max-width: 800px;
-            margin: 50px auto;
-            text-align: center;
+            max-width: 500px;
+            margin: 60px auto;
+            /*background-image: url('https://seeklogo.com/images/B/bkash-logo-0C1572FBB4-seeklogo.com.png');*/
             background: transparent;
-            margin-bottom: 150px;
+            background-size: 20ch;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 70px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(4px);
         }
 
         h1 {
-            margin-top: 200px;
-            color: #333;
+            color: #d12053;
+            text-align: center;
+            margin-top: 0px;
         }
 
-        .payment-buttons {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 60px;
+        .form-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #e2136e;
+            border-radius: 25px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #e2136e;
+            border-radius: 25px;
         }
 
         button {
-            background-color: #fff;
-            border: 2px solid #ddd;
-            border-radius: 35px;
-            padding: 8px;
+            background-color: #e2136e;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: background-color 0.5s ease;
         }
 
         button:hover {
-            background-color: #ddd;
-            transform: scale(1.05);
+            background-color: #d12053;
         }
 
-        button img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
+        .result-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            display: none;
+        }
+
+        .modal {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .modal button {
+            background-color: #e2136e;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .modal button:hover {
+            background-color: #d12053;
         }
     </style>
 </head>
 
 <body>
-    <video autoplay loop muted>
-        <source src="https://www.pexels.com/download/video/2141798/?fps=25.0&h=1080&w=1920" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <img src="bg/bkashbg.gif" alt="Background GIF" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
 
-    
+    <div id="header-placeholder"></div>
 
     <div class="container">
-        <h1>Select Cash Out Method For Maximum Withdrawal</h1>
-        <div class="payment-buttons">
-            <button onclick="redirectToPayment('bkash')">
-                <img src="https://www.logo.wine/a/logo/BKash/BKash-bKash-Logo.wine.svg" alt="Bkash Logo" width="200"
-                    height="50">
-            </button>
-            <button onclick="redirectToPayment('nagad')">
-                <img src="https://nagad.com.bd/_nuxt/img/new-logo.7939432.png" alt="Nagad Logo" width="100" height="50">
-            </button>
-            <button onclick="redirectToPayment('rocket')">
-                <img src="https://www.dutchbanglabank.com/img/mlogo.png" alt="Rocket Logo" width="100" height="50">
-            </button>
-            <button onclick="redirectToPayment('upay')">
-                <img src="https://www.pngtom.com/files/preview/800x800/31691834537dmz1igdncouyd0ngkwjsrs5nujdmixmkjel0wmxuija74sujtntvzjahvktfzprcm7vtyfrxkxcjhlc7pmfewd7oqfxe8xznimpv.png"
-                    alt="Upay Logo" width="100" height="50">
-            </button>
-            <button onclick="redirectToPayment('surecash')">
-                <img src="https://www.pngtom.com/files/preview/960x960/31703688493ibxxbagdhgeem2stxvwtjywvaxk94tu1msabh7ko9zq1iwaj9slmwc9saobbubxaezxzyoglqkissmfsc5uyaajgk1z6rpyzkyll.png"
-                    alt="SureCash Logo" width="100" height="50">
-            </button>
+        <h1>Bkash Maximum Withdraw Calculator</h1>
+
+        <div class="form-container">
+            <input type="number" id="currentBalance" placeholder="Enter current balance" required>
+            <select id="cashoutMethod">
+                <option value="selectCashoutMethod">Select Cashout Method</option>
+                <option value="normal">Regular Agent</option>
+                <option value="favorite">Favorite Agent</option>
+                <option value="atm">ATM</option>
+                <option value="ussd">USSD</option>
+            </select>
+            <button onclick="calculateWithdraw('bkash')">Calculate Withdraw</button>
+        </div>
+
+        <div class="result-container">
+            <p id="result"></p>
         </div>
     </div>
-    
+    <iframe src="footer.html" frameborder="0" width="100%" height="150px"></iframe>
 
     <script src="script.js"></script>
-    
-    <iframe src="footer.html" frameborder="0" width="100%" height="150px"></iframe>
-    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                });
+        });
+    </script>
 </body>
 
 </html>
