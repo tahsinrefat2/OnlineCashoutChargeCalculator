@@ -132,7 +132,7 @@ function calculateWithdraw(paymentMethod) {
     const maxWithdraw = currentBalance / (1 + withdrawalChargePercentage / 100);
     const withdrawalCharge = currentBalance - maxWithdraw;
 
-    const resultMessage = `Mximum you can withdraw: BDT ${maxWithdraw.toFixed(2)}<br>Withdrawal charge: BDT ${withdrawalCharge.toFixed(2)}<br>Withdrawal Rate: ${withdrawalChargePercentage.toFixed(2)}%`;
+    const resultMessage = `Maximum you can withdraw: BDT ${maxWithdraw.toFixed(2)}<br>Withdrawal charge: BDT ${withdrawalCharge.toFixed(2)}<br>Withdrawal Rate: ${withdrawalChargePercentage.toFixed(2)}%`;
 
     // Display the result in a modal
     const modalOverlay = document.createElement('div');
